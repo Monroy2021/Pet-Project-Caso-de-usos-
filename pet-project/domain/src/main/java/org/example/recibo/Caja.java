@@ -11,6 +11,9 @@ public class Caja extends Entity<CajaId> {
         super(cajaId);
         this.numeroDeCaja = numeroDeCaja;
     }
+    public Caja(CajaId cajaId){
+        super(cajaId);
+    }
     public void cambiarNumeroDeCaja(NumeroDeCaja nuevoNumeroDeCaja){
         this.numeroDeCaja= numeroDeCaja.cambiarNumeroDeCaja(nuevoNumeroDeCaja.value().numeroDeCaja());
     }

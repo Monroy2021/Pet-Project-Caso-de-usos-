@@ -9,38 +9,45 @@ import org.example.compra.events.LibroAgregado;
 import org.example.compra.events.ReciboGenerado;
 import org.example.compra.values.CompraId;
 import org.example.libro.values.LibroCod;
+import org.example.libro.values.Precio;
+import org.example.recibo.values.CajaId;
+import org.example.recibo.values.FechaRecibo;
 import org.example.recibo.values.ReciboId;
 import org.example.compra.values.ValorTotal;
 import org.example.recibo.values.VendedorId;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 public class Compra extends AggregateEvent<CompraId> {
     protected ClienteId clienteId;
-    protected Set<LibroCod> listaLibros;
+    protected Map<LibroCod, Precio> listaLibros;
     protected ReciboId reciboId;
     protected ValorTotal valorTotal;
     protected VendedorId vendedorId;
-    public Compra(CompraId id,ClienteId clienteId,Set<LibroCod> listaLibros,ValorTotal valorTotal, VendedorId vendedorId) {
-        super(id);
+    protected CajaId cajaId;
+    protected FechaRecibo fechaRecibo;
+    public Compra(CompraId compraId, ClienteId clienteId, Map<LibroCod, Precio> listaLibros, ValorTotal valorTotal, ReciboId reciboId, VendedorId vendedorId, CajaId cajaId, FechaRecibo fechaRecibo) {
+        super(compraId);
         appendChange(new CompraCreada(clienteId,listaLibros,valorTotal,vendedorId)).apply();
+        appendChange(new ReciboGenerado(compraId,clienteId,listaLibros,valorTotal,reciboId,vendedorId,cajaId,fechaRecibo)).apply();
         subscribe(new CompraEventChange(this));
     }
 private Compra(CompraId compraId){
         super(compraId);
         subscribe(new CompraEventChange(this));
 }
-    public void AgregarLibro(LibroCod libroCod){
+    public void AgregarLibro(LibroCod libroCod,Precio precio){
         Objects.requireNonNull(libroCod);
-        appendChange(new LibroAgregado(libroCod));
+        Objects.requireNonNull(precio);
+        appendChange(new LibroAgregado(libroCod,precio));
 
     }
     public void
 
-    GenerarRecibo(CompraId id,ClienteId clienteId,Set<LibroCod> listaLibros,ValorTotal valorTotal, VendedorId vendedorId){
-  appendChange(new ReciboGenerado(id,clienteId,listaLibros,valorTotal,vendedorId)).apply();
+    GenerarRecibo(CompraId id, ClienteId clienteId, Map<LibroCod, Precio> listaLibros, ValorTotal valorTotal,ReciboId reciboId, VendedorId vendedorId,CajaId cajaId){
+  appendChange(new ReciboGenerado(id,clienteId,listaLibros,valorTotal, reciboId, vendedorId, cajaId, fechaRecibo)).apply();
     }
     public void AsignarCliente(ClienteId clienteId){
         appendChange(new ClienteAgregado(clienteId));

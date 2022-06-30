@@ -9,9 +9,8 @@ public class CrearCompraUseCase extends UseCase<RequestCommand<CrearCompraComman
     @Override
     public void executeUseCase(RequestCommand<CrearCompraCommand> crearCompraCommandRequestCommand) {
         var command= crearCompraCommandRequestCommand.getCommand();
-        var compra = new Compra(command.getCompraId(),
-                command.getClienteId(),command.getListaLibros(),command.getValorTotal(),command.getVendedorId());
-        emit().onResponse(new ResponseEvents(compra.getUncommittedChanges()));
+       var compra = new Compra(command.getCompraId(),command.getClienteId(),command.getListaLibros(),command.getValorTotal(),command.getReciboId(),command.getVendedorId(),command.getCajaId(),command.getFechaRecibo());
+       emit().onResponse(new ResponseEvents(compra.getUncommittedChanges()));
     }
 
 }

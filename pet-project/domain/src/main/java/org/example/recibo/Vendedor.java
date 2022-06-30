@@ -11,6 +11,11 @@ public class Vendedor extends Entity<VendedorId> {
         super(vendedorId);
         this.nombreVendedor = nombreVendedor;
     }
+
+    public Vendedor(VendedorId vendedorId) {
+        super(vendedorId);
+    }
+
     public void cambiarNombreVendedor(NombreVendedor nuevoNombre){
         this.nombreVendedor = nombreVendedor.cambiarNombreVendedor(nuevoNombre.value());
     }
