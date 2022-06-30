@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import org.example.cliente.ClienteId;
 import org.example.recibo.values.Detalle;
 import org.example.recibo.values.FechaRecibo;
-import org.example.recibo.values.ValorTotal;
+import org.example.compra.values.ValorTotal;
 
 public class ReciboCreado extends DomainEvent {
     private final ClienteId clienteId;

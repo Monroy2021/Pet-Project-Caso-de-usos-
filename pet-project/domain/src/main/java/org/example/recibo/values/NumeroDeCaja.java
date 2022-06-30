@@ -22,6 +22,10 @@ public class NumeroDeCaja implements ValueObject<NumeroDeCaja.Props> {
         };
     }
 
+    public NumeroDeCaja cambiarNumeroDeCaja(Integer numero) {
+        return new NumeroDeCaja(numero);
+    }
+
     public interface Props {
         Integer numeroDeCaja();
     }

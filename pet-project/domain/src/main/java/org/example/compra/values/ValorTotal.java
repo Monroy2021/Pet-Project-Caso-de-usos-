@@ -1,4 +1,4 @@
-package org.example.recibo.values;
+package org.example.compra.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
