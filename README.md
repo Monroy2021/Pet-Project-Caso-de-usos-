@@ -18,5 +18,6 @@ Trabajo en el package que tiene el agregado Libro
 
 # Pantallazos Erick Diaz
 Trabajo en el package que tiene el agregado Compra
+trabajo en rama ErickDiaz
 ![img_9.png](img_9.png)
 ![img_10.png](img_10.png)
