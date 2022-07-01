@@ -8,7 +8,6 @@ import org.example.libro.values.Nombre;
 public class LibroCreado extends DomainEvent {
 
     private final AuthorId authorId;
-
     private final Nombre nombreAutor;
     private final Descripcion descripcion;
 
