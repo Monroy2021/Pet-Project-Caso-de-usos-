@@ -2,7 +2,6 @@ package org.example.cliente;
 
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.generic.ValueObject;
 
 public class Subscripcion extends Entity<SubscripcionId> {
 
