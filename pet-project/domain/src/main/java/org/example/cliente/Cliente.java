@@ -3,7 +3,7 @@ package org.example.cliente;
 import co.com.sofka.domain.generic.AggregateEvent;
 import jdk.jshell.JShell;
 
-public class Cliente extends AggregateEvent<ClienteId> {
+public class Cliente extends AggregateEvent<CarnetId> {
 
     //entidad-id
     protected Subscripcion subscripcion;
@@ -18,7 +18,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
     protected Nombre nombre;
 
 
-    public Cliente(ClienteId Id,Subscripcion subscripcion,Carnet carnet) {
+    public Cliente(CarnetId Id,Subscripcion subscripcion,Carnet carnet) {
         super(Id);
     }
 }

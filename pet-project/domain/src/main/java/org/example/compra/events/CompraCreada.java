@@ -1,7 +1,7 @@
 package org.example.compra.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import org.example.cliente.ClienteId;
+import org.example.cliente.CarnetId;
 import org.example.compra.values.ValorTotal;
 import org.example.libro.values.LibroCod;
 import org.example.libro.values.Precio;
@@ -10,12 +10,12 @@ import org.example.recibo.values.VendedorId;
 import java.util.Map;
 
 public class CompraCreada extends DomainEvent {
-    private final ClienteId clienteId;
+    private final CarnetId clienteId;
     private final Map<LibroCod, Precio> listaLibros;
     private final ValorTotal valorTotal;
     private final VendedorId vendedorId;
 
-    public CompraCreada(ClienteId clienteId, Map<LibroCod, Precio> listaLibros, ValorTotal valorTotal, VendedorId vendedorId) {
+    public CompraCreada(CarnetId clienteId, Map<LibroCod, Precio> listaLibros, ValorTotal valorTotal, VendedorId vendedorId) {
         super("org.example.compra.events.CompraCreada");
         this.clienteId = clienteId;
         this.listaLibros = listaLibros;
@@ -23,7 +23,7 @@ public class CompraCreada extends DomainEvent {
         this.vendedorId = vendedorId;
     }
 
-    public ClienteId getClienteId() {
+    public CarnetId getClienteId() {
         return clienteId;
     }
 

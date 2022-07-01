@@ -1,7 +1,7 @@
 package org.example.compra.commands;
 
 import co.com.sofka.domain.generic.Command;
-import org.example.cliente.ClienteId;
+import org.example.cliente.CarnetId;
 import org.example.compra.values.CompraId;
 import org.example.compra.values.ValorTotal;
 import org.example.libro.values.LibroCod;
@@ -14,7 +14,7 @@ import org.example.recibo.values.VendedorId;
 import java.util.Map;
 
 public class CrearCompraCommand extends Command {
-    private final ClienteId clienteId;
+    private final CarnetId clienteId;
     private final Map<LibroCod, Precio> listaLibros;
     private final ReciboId reciboId;
     private final ValorTotal valorTotal;
@@ -23,7 +23,7 @@ public class CrearCompraCommand extends Command {
     private final FechaRecibo fechaRecibo;
     private final CompraId compraId;
 
-    public CrearCompraCommand(CompraId compraId, ClienteId clienteId, Map<LibroCod, Precio> listaLibros, ReciboId reciboId, ValorTotal valorTotal, VendedorId vendedorId, CajaId cajaId, FechaRecibo fechaRecibo) {
+    public CrearCompraCommand(CompraId compraId, CarnetId clienteId, Map<LibroCod, Precio> listaLibros, ReciboId reciboId, ValorTotal valorTotal, VendedorId vendedorId, CajaId cajaId, FechaRecibo fechaRecibo) {
         this.reciboId = reciboId;
         this.cajaId = cajaId;
         this.fechaRecibo = fechaRecibo;
@@ -50,7 +50,7 @@ public class CrearCompraCommand extends Command {
         return compraId;
     }
 
-    public ClienteId getClienteId() {
+    public CarnetId getClienteId() {
         return clienteId;
     }
 

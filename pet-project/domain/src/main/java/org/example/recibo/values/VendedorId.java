@@ -9,4 +9,8 @@ public class VendedorId extends Identity {
 
     public VendedorId() {
     }
+
+    public static VendedorId of(String valor) {
+        return new VendedorId(valor);
+    }
 }

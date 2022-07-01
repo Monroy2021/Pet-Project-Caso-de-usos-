@@ -9,4 +9,7 @@ public class ReciboId extends Identity {
 
     public ReciboId() {
     }
+    public static ReciboId of(String valor){
+        return new ReciboId(valor);
+    }
 }

@@ -1,20 +1,20 @@
 package org.example.recibo;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import org.example.cliente.ClienteId;
+import org.example.cliente.CarnetId;
 import org.example.recibo.values.Detalle;
 import org.example.recibo.values.FechaRecibo;
 import org.example.compra.values.ValorTotal;
 
 public class ReciboCreado extends DomainEvent {
-    private final ClienteId clienteId;
+    private final CarnetId clienteId;
     private final Detalle detalle;
     private final Caja caja;
     private final Vendedor vendedor;
     private final ValorTotal valorTotal;
     private final FechaRecibo fechaRecibo;
 
-    public ReciboCreado(ClienteId clienteId, Detalle detalle, Caja caja, Vendedor vendedor, ValorTotal valorTotal, FechaRecibo fechaRecibo) {
+    public ReciboCreado(CarnetId clienteId, Detalle detalle, Caja caja, Vendedor vendedor, ValorTotal valorTotal, FechaRecibo fechaRecibo) {
         super(
                 "org.example.recibo.ReciboCreado"
         );
@@ -27,7 +27,7 @@ public class ReciboCreado extends DomainEvent {
         this.fechaRecibo = fechaRecibo;
     }
 
-    public ClienteId getClienteId() {
+    public CarnetId getClienteId() {
         return clienteId;
     }
 

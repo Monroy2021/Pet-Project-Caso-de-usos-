@@ -1,7 +1,7 @@
 package org.example.compra.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import org.example.cliente.ClienteId;
+import org.example.cliente.CarnetId;
 import org.example.compra.values.CompraId;
 import org.example.compra.values.ValorTotal;
 import org.example.libro.values.LibroCod;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class ReciboGenerado extends DomainEvent {
     private final CompraId compraId;
-    private final ClienteId clienteId;
+    private final CarnetId clienteId;
     private final Map<LibroCod, Precio> listaLibros;
     private final ValorTotal valorTotal;
     private final ReciboId reciboId;
@@ -27,7 +27,7 @@ public class ReciboGenerado extends DomainEvent {
         return cajaId;
     }
 
-    public ReciboGenerado(CompraId compraId, ClienteId clienteId, Map<LibroCod, Precio> listaLibros, ValorTotal valorTotal, ReciboId reciboId, VendedorId vendedorId, CajaId cajaId, FechaRecibo fechaRecibo) {
+    public ReciboGenerado(CompraId compraId, CarnetId clienteId, Map<LibroCod, Precio> listaLibros, ValorTotal valorTotal, ReciboId reciboId, VendedorId vendedorId, CajaId cajaId, FechaRecibo fechaRecibo) {
         super("org.example.compra.events.ReciboGenerado");
         this.compraId = compraId;
         this.clienteId = clienteId;
@@ -53,7 +53,7 @@ public class ReciboGenerado extends DomainEvent {
 
 
 
-    public ClienteId getClienteId() {
+    public CarnetId getClienteId() {
         return clienteId;
     }
 
