@@ -14,7 +14,7 @@ import org.example.libro.values.*;
 import java.util.List;
 
 
-public class Cliente extends AggregateEvent<ClienteId> {
+public class Cliente extends AggregateEvent<CarnetId> {
 
     //entidad-id
     protected Subscripcion subscripcion;
@@ -29,7 +29,11 @@ public class Cliente extends AggregateEvent<ClienteId> {
     protected Nombre nombre;
 
 
+<<<<<<< HEAD
     public Cliente(ClienteId Id, Nombre nombre, Email correo, Subscripcion subscripcion) {
+=======
+    public Cliente(CarnetId Id,Subscripcion subscripcion,Carnet carnet) {
+>>>>>>> ErickDiaz
         super(Id);
 
         appendChange(new ClienteCreado(Id, nombre, correo,subscripcion)).apply();
