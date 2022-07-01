@@ -11,4 +11,8 @@ public class AuthorId extends Identity {
     public AuthorId(){
         //super -> auto generarlo
     }
+
+    public static AuthorId of(String valor) {
+        return new AuthorId(valor);
+    }
 }
